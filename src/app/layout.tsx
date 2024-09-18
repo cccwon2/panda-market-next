@@ -1,3 +1,4 @@
+import React from "react";
 import { Inter } from "next/font/google";
 import "@/styles/global-styles"; // 전역 스타일
 import Header from "@/components/Layout/Header";

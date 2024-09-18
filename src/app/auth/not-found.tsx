@@ -1,4 +1,6 @@
 // src/app/auth/not-found.tsx
+"use client";
+
 export default function AuthNotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center">

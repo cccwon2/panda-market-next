@@ -1,3 +1,4 @@
+import React from "react";
 import facebookLogo from "@/app/assets/images/social/facebook-logo.svg";
 import twitterLogo from "@/app/assets/images/social/twitter-logo.svg";
 import youtubeLogo from "@/app/assets/images/social/youtube-logo.svg";

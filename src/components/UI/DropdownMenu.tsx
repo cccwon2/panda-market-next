@@ -1,6 +1,7 @@
 // src/components/UI/InputItem.tsx
 "use client"; // 클라이언트 전용임을 명시
 
+import React from "react";
 import { useState } from "react";
 import { ProductSortOption } from "@/types/product-types";
 import SortIcon from "@/app/assets/images/icons/ic_sort.svg";

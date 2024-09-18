@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getProducts } from "@/api/itemApi";
 import ItemCard from "./ItemCard";
 import SearchIcon from "@/app/assets/images/icons/ic_search.svg";

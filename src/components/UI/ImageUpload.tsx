@@ -1,7 +1,7 @@
 // src/components/UI/InputItem.tsx
 "use client"; // 클라이언트 전용임을 명시
 
-import { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import Label from "./InputItem";
 import PlusIcon from "@/app/assets/images/icons/ic_plus.svg";
 import DeleteButton from "./DeleteButton";

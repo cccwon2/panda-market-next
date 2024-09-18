@@ -1,6 +1,7 @@
 // src/styles/global-styles.tsx
 "use client"; // 클라이언트 전용임을 명시
 
+import React from "react";
 import theme from "./theme";
 
 const GlobalStyles = () => {

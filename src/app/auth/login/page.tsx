@@ -1,7 +1,7 @@
 // src/app/auth/login/page.tsx
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

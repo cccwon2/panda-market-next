@@ -1,7 +1,7 @@
 // src/components/UI/InputItem.tsx
 "use client"; // 클라이언트 전용임을 명시
 
-import { useState } from "react";
+import React, { useState } from "react";
 import HeartIcon from "@/app/assets/images/icons/ic_heart.svg";
 
 interface LikeButtonProps {

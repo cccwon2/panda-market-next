@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
 import { getProducts } from "@/api/itemApi";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
