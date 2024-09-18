@@ -4,21 +4,23 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import InputItem from "@/components/UI/InputItem";
+import InputItem from "../../../components/UI/InputItem";
 import SocialLogin from "../../../components/UI/SocialLogin";
 import PasswordInput from "../../../components/UI/PasswordInput";
-import { requestLogin } from "@/api/authApi";
-import { LoginFormValues, LoginResponse } from "@/types/auth-types";
+import { requestLogin } from "../../../api/authApi";
+import { LoginFormValues, LoginResponse } from "../../../types/auth-types";
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      router.push("/");
+    if (typeof window !== "undefined") {
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken) {
+        router.push("/");
+      }
     }
   }, [router]);
 
@@ -39,7 +41,11 @@ const LoginPage: React.FC = () => {
     try {
       const result = (await requestLogin(trimmedData)) as LoginResponse;
       console.log(result);
-      localStorage.setItem("accessToken", result.accessToken as string);
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem("accessToken", result.accessToken as string);
+      }
+
       router.push("/");
     } catch (error) {
       console.error("Error:", error);
@@ -64,7 +70,7 @@ const LoginPage: React.FC = () => {
       </Link>
 
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
-        <InputItem<LoginFormValues>
+        <InputItem
           id="email"
           label="이메일"
           placeholder="이메일을 입력해 주세요"

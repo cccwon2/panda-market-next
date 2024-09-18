@@ -1,3 +1,6 @@
+// src/components/UI/InputItem.tsx
+"use client"; // 클라이언트 전용임을 명시
+
 import { useEffect, useState } from "react";
 import { getProductComments } from "../../../api/itemApi";
 import EmptyStateImage from "../../../app/assets/images/ui/empty-comments.svg";

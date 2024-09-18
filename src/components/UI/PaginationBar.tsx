@@ -1,3 +1,6 @@
+// src/components/UI/InputItem.tsx
+"use client"; // 클라이언트 전용임을 명시
+
 import LeftArrow from "../../app/assets/images/icons/arrow_left.svg";
 import RightArrow from "../../app/assets/images/icons/arrow_right.svg";
 

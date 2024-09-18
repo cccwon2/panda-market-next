@@ -1,3 +1,6 @@
+// src/components/UI/InputItem.tsx
+"use client"; // 클라이언트 전용임을 명시
+
 import { KeyboardEvent, useState } from "react";
 import InputItem from "./InputItem";
 import DeleteButton from "./DeleteButton";

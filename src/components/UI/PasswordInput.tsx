@@ -1,3 +1,6 @@
+// src/components/UI/InputItem.tsx
+"use client";
+
 import React, { useState } from "react";
 import eyeInvisibleIcon from "../../app/assets/images/icons/eye-invisible.svg";
 import eyeVisibleIcon from "../../app/assets/images/icons/eye-visible.svg";

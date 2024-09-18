@@ -1,4 +1,6 @@
 // src/components/UI/InputItem.tsx
+"use client";
+
 import { ChangeEvent, KeyboardEvent, FocusEvent } from "react";
 import {
   FieldValues,

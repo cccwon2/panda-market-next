@@ -4,21 +4,23 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import InputItem from "@/components/UI/InputItem";
+import InputItem from "../../../components/UI/InputItem";
 import SocialLogin from "../../../components/UI/SocialLogin";
 import PasswordInput from "../../../components/UI/PasswordInput";
-import { requestSignup } from "@/api/authApi";
-import { SignupFormValues } from "@/types/auth-types";
+import { requestSignup } from "../../../api/authApi";
+import { SignupFormValues } from "../../../types/auth-types";
 
 const SignupPage: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      router.push("/");
+    if (typeof window !== "undefined") {
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken) {
+        router.push("/");
+      }
     }
   }, [router]);
 
