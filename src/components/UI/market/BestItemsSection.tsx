@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard";
-import { getProducts } from "../../../api/itemApi";
-import LoadingSpinner from "../../../components/UI/LoadingSpinner";
+import { getProducts } from "@/api/itemApi";
+import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import {
   Product,
   ProductListResponse,
   ProductSortOption,
-} from "../../../types/product-types";
-import theme from "../../../styles/theme";
+} from "@/types/product-types";
+import theme from "@/styles/theme";
 
 const getPageSize = () => {
   const width = window.innerWidth;

@@ -2,8 +2,8 @@
 "use client"; // 클라이언트 전용임을 명시
 
 import Image, { StaticImageData } from "next/image";
-import googleLogo from "../../app/assets/images/social/google-logo.png";
-import kakaoLogo from "../../app/assets/images/social/kakao-logo.png";
+import googleLogo from "@/app/assets/images/social/google-logo.png";
+import kakaoLogo from "@/app/assets/images/social/kakao-logo.png";
 
 interface SocialLoginLinkProps {
   name: string;

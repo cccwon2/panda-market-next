@@ -1,9 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import InputItem from "../../components/UI/InputItem";
-import TagInput from "../../components/UI/TagInput";
-import ImageUpload from "../../components/UI/ImageUpload";
+import InputItem from "@/components/UI/InputItem";
+import TagInput from "@/components/UI/TagInput";
+import ImageUpload from "@/components/UI/ImageUpload";
 
 const AddItemPage: React.FC = () => {
   const [name, setName] = useState("");

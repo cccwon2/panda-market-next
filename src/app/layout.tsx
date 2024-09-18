@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
-import "../styles/global-styles"; // 전역 스타일
-import Header from "../components/Layout/Header";
-import Footer from "../components/Layout/Footer";
-import theme from "../styles/theme";
+import "@/styles/global-styles"; // 전역 스타일
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
+import theme from "@/styles/theme";
 
 // Google 폰트 설정
 const inter = Inter({ subsets: ["latin"] });

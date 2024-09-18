@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import HeartIcon from "../../../app/assets/images/icons/ic_heart.svg";
-import { Product } from "../../../types/product-types";
+import HeartIcon from "@/app/assets/images/icons/ic_heart.svg";
+import { Product } from "@/types/product-types";
 
 interface ItemCardProps {
   item: Product;

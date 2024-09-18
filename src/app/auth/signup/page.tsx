@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
-import InputItem from "../../../components/UI/InputItem";
-import SocialLogin from "../../../components/UI/SocialLogin";
-import PasswordInput from "../../../components/UI/PasswordInput";
-import { requestSignup } from "../../../api/authApi";
-import { SignupFormValues } from "../../../types/auth-types";
+import InputItem from "@/components/UI/InputItem";
+import SocialLogin from "@/components/UI/SocialLogin";
+import PasswordInput from "@/components/UI/PasswordInput";
+import { requestSignup } from "@/api/authApi";
+import { SignupFormValues } from "@/types/auth-types";
 
 const SignupPage: React.FC = () => {
   const router = useRouter();

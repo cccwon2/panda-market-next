@@ -2,15 +2,15 @@
 "use client"; // 클라이언트 전용임을 명시
 
 import { useEffect, useState } from "react";
-import { getProductComments } from "../../../api/itemApi";
-import EmptyStateImage from "../../../app/assets/images/ui/empty-comments.svg";
-import SeeMoreIcon from "../../../app/assets/images/icons/ic_kebab.svg";
-import DefaultProfileImage from "../../../app/assets/images/ui/ic_profile.svg";
-import { formatUpdatedAt } from "../../../utils/dateUtils";
+import { getProductComments } from "@/api/itemApi";
+import EmptyStateImage from "@/app/assets/images/ui/empty-comments.svg";
+import SeeMoreIcon from "@/app/assets/images/icons/ic_kebab.svg";
+import DefaultProfileImage from "@/app/assets/images/ui/ic_profile.svg";
+import { formatUpdatedAt } from "@/utils/dateUtils";
 import {
   ProductComment,
   ProductCommentListResponse,
-} from "../../../types/comment-types";
+} from "@/types/comment-types";
 import Image from "next/image";
 
 interface CommentItemProps {

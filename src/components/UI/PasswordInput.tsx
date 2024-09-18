@@ -2,8 +2,8 @@
 "use client";
 
 import React, { useState } from "react";
-import eyeInvisibleIcon from "../../app/assets/images/icons/eye-invisible.svg";
-import eyeVisibleIcon from "../../app/assets/images/icons/eye-visible.svg";
+import eyeInvisibleIcon from "@/app/assets/images/icons/eye-invisible.svg";
+import eyeVisibleIcon from "@/app/assets/images/icons/eye-visible.svg";
 import InputItem from "./InputItem";
 import { UseFormRegisterReturn } from "react-hook-form";
 import Image from "next/image";

@@ -1,7 +1,7 @@
-import facebookLogo from "../../app/assets/images/social/facebook-logo.svg";
-import twitterLogo from "../../app/assets/images/social/twitter-logo.svg";
-import youtubeLogo from "../../app/assets/images/social/youtube-logo.svg";
-import instagramLogo from "../../app/assets/images/social/instagram-logo.svg";
+import facebookLogo from "@/app/assets/images/social/facebook-logo.svg";
+import twitterLogo from "@/app/assets/images/social/twitter-logo.svg";
+import youtubeLogo from "@/app/assets/images/social/youtube-logo.svg";
+import instagramLogo from "@/app/assets/images/social/instagram-logo.svg";
 import { Link } from "react-router-dom";
 import Image from "next/image";
 

@@ -3,9 +3,9 @@
 import Image from "next/image";
 import TagDisplay from "./TagDisplay";
 import LikeButton from "./LikeButton";
-import theme from "../../../styles/theme";
-import SeeMoreIcon from "../../../app/assets/images/icons/ic_kebab.svg";
-import { Product } from "../../../types/product-types";
+import theme from "@/styles/theme";
+import SeeMoreIcon from "@/app/assets/images/icons/ic_kebab.svg";
+import { Product } from "@/types/product-types";
 
 interface ItemProfileSectionProps {
   product: Product;

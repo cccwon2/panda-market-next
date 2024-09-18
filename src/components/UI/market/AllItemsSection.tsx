@@ -1,19 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getProducts } from "../../../api/itemApi";
+import { getProducts } from "@/api/itemApi";
 import ItemCard from "./ItemCard";
-import SearchIcon from "../../assets/images/icons/ic_search.svg";
-import DropdownMenu from "../../../components/UI/DropdownMenu";
-import PaginationBar from "../../../components/UI/PaginationBar";
-import LoadingSpinner from "../../../components/UI/LoadingSpinner";
+import SearchIcon from "@/assets/images/icons/ic_search.svg";
+import DropdownMenu from "@/components/UI/DropdownMenu";
+import PaginationBar from "@/components/UI/PaginationBar";
+import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import {
   Product,
   ProductListResponse,
   ProductSortOption,
-} from "../../../types/product-types";
+} from "@/types/product-types";
 import Link from "next/link";
-import theme from "../../../styles/theme";
+import theme from "@/styles/theme";
 
 const getPageSize = () => {
   const width = window.innerWidth;

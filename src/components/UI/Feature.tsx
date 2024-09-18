@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import theme from "../../styles/theme";
+import theme from "@/styles/theme";
 
 interface FeatureProps {
   image: string;

@@ -2,8 +2,8 @@
 "use client"; // 클라이언트 전용임을 명시
 
 import { useState } from "react";
-import { ProductSortOption } from "../../types/product-types";
-import SortIcon from "../../app/assets/images/icons/ic_sort.svg";
+import { ProductSortOption } from "@/types/product-types";
+import SortIcon from "@/app/assets/images/icons/ic_sort.svg";
 
 interface DropdownMenuProps {
   onSortSelection: (sortOption: ProductSortOption) => void;

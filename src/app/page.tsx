@@ -2,14 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
-import Footer from "../components/Layout/Footer";
-import Feature from "../components/UI/Feature";
-import theme from "../styles/theme";
-import heroImage from "./assets/images/home/hero-image.png";
-import bottomBannerImage from "./assets/images/home/bottom-banner-image.png";
-import feature1Image from "./assets/images/home/feature1-image.png";
-import feature2Image from "./assets/images/home/feature2-image.png";
-import feature3Image from "./assets/images/home/feature3-image.png";
+import Footer from "@/components/Layout/Footer";
+import Feature from "@/components/UI/Feature";
+import theme from "@/styles/theme";
+import heroImage from "@/app/assets/images/home/hero-image.png";
+import bottomBannerImage from "@/app/assets/images/home/bottom-banner-image.png";
+import feature1Image from "@/app/assets/images/home/feature1-image.png";
+import feature2Image from "@/app/assets/images/home/feature2-image.png";
+import feature3Image from "@/app/assets/images/home/feature3-image.png";
 
 const HomePage: React.FC = () => {
   return (
