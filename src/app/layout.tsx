@@ -1,11 +1,10 @@
 import React from "react";
 import { Inter } from "next/font/google";
-import "@/styles/global-styles"; // 전역 스타일
+import "@/styles/global-styles";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
-import theme from "@/styles/theme";
+import ClientLayout from "./ClientLayout";
 
-// Google 폰트 설정
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -14,17 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={inter.className}>
       <head>
         <title>판다마켓</title>
       </head>
-      <body
-        className={inter.className}
-        style={{
-          backgroundColor: theme.colors.gray[50],
-          color: theme.colors.gray[900],
-        }}
-      >
+      <ClientLayout>
         <Header />
         <main
           className="min-h-screen"
@@ -37,7 +30,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-      </body>
+      </ClientLayout>
     </html>
   );
 }

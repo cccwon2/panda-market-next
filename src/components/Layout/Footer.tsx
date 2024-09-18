@@ -1,9 +1,11 @@
+"use client";
+
 import React from "react";
 import facebookLogo from "@/app/assets/images/social/facebook-logo.svg";
 import twitterLogo from "@/app/assets/images/social/twitter-logo.svg";
 import youtubeLogo from "@/app/assets/images/social/youtube-logo.svg";
 import instagramLogo from "@/app/assets/images/social/instagram-logo.svg";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Image from "next/image";
 
 const Footer: React.FC = () => (
@@ -11,8 +13,8 @@ const Footer: React.FC = () => (
     <div className="order-3 w-full md:order-none md:w-auto">©codeit - 2024</div>
 
     <div className="flex gap-[30px] text-gray-200">
-      <Link to="/privacy">Privacy Policy</Link>
-      <Link to="/faq">FAQ</Link>
+      <Link href="/privacy">Privacy Policy</Link>
+      <Link href="/faq">FAQ</Link>
     </div>
 
     <div className="flex gap-3">
