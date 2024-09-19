@@ -2,9 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Footer from "@/components/Layout/Footer";
 import Feature from "@/components/UI/Feature";
-import theme from "@/styles/theme";
 import heroImage from "@/images/home/hero-image.png";
 import bottomBannerImage from "@/images/home/bottom-banner-image.png";
 import feature1Image from "@/images/home/feature1-image.png";
@@ -15,7 +13,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <section
-        className={`bg-[${theme.colors.blue.primary}] h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]`}
+        className="bg-blue-500 h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]"
         style={{ backgroundImage: `url(${heroImage.src})` }}
       >
         <div className="lg:max-w-[1200px] lg:w-full lg:mx-auto">
@@ -60,7 +58,7 @@ const HomePage: React.FC = () => {
       </section>
 
       <section
-        className={`bg-[${theme.colors.blue.primary}] h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]`}
+        className="bg-blue-500 h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]"
         style={{ backgroundImage: `url(${bottomBannerImage.src})` }}
       >
         <div className="lg:max-w-[1200px] lg:w-full lg:mx-auto">
@@ -71,8 +69,6 @@ const HomePage: React.FC = () => {
           </h1>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 };

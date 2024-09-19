@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { Container } from "@/styles/common-styles";
+import "@/styles/common-styles.css";
 
 const MyPage: React.FC = () => {
-  return <Container>MyPage</Container>;
+  return <div className="container">MyPage</div>;
 };
 
 export default MyPage;

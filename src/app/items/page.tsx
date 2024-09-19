@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Container } from "@/styles/common-styles";
-import BestItemsSection from "@/components/UI/market/BestItemsSection";
-import AllItemsSection from "@/components/UI/market/AllItemsSection";
+import "@/styles/common-styles.css";
+import BestItemsSection from "@/components/UI/item/BestItemsSection";
+import AllItemsSection from "@/components/UI/item/AllItemsSection";
 
 const MarketPage: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
@@ -17,10 +17,10 @@ const MarketPage: React.FC = () => {
   }
 
   return (
-    <Container>
-      <BestItemsSection />
-      <AllItemsSection />
-    </Container>
+    <div className="container">
+      <BestItemsSection width={282} height={282} />
+      <AllItemsSection width={220} height={220} />
+    </div>
   );
 };
 

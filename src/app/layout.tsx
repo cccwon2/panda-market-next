@@ -1,6 +1,6 @@
 import React from "react";
 import { Inter } from "next/font/google";
-import "@/styles/global-styles";
+import "@/styles/global-styles.css";
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
 import ClientLayout from "./ClientLayout";

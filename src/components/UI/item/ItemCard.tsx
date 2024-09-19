@@ -8,9 +8,11 @@ import { Product } from "@/types/product-types";
 
 interface ItemCardProps {
   item: Product;
+  width?: number;
+  height?: number;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ item, width, height }) => {
   return (
     <Link
       href={`/items/${item.id}`}
@@ -21,6 +23,8 @@ const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
           src={item.images[0]}
           alt={`${item.name} 상품 썸네일`}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+          width={width}
+          height={height}
         />
       </div>
       <div className="flex flex-col gap-2.5">

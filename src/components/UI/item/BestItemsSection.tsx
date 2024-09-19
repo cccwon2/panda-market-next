@@ -22,7 +22,15 @@ const getPageSize = () => {
   }
 };
 
-const BestItemsSection: React.FC = () => {
+interface BestItemsSectionProps {
+  width: number;
+  height: number;
+}
+
+const BestItemsSection: React.FC<BestItemsSectionProps> = ({
+  width,
+  height,
+}) => {
   const [itemList, setItemList] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [isLoading, setIsLoading] = useState(true);
@@ -75,7 +83,12 @@ const BestItemsSection: React.FC = () => {
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {itemList?.map((item) => (
-            <ItemCard item={item} key={`best-item-${item.id}`} />
+            <ItemCard
+              item={item}
+              key={`best-item-${item.id}`}
+              width={width}
+              height={height}
+            />
           ))}
         </div>
       </div>

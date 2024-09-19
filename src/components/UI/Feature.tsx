@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import theme from "@/styles/theme";
 
 interface FeatureProps {
   image: string;
@@ -37,9 +36,7 @@ const Feature: React.FC<FeatureProps> = ({
         />
       </div>
       <div className="flex-1">
-        <h2
-          className={`text-[${theme.colors.blue}] text-base leading-[1.4] font-bold mb-2 md:text-lg md:leading-[1.4] md:mb-3`}
-        >
+        <h2 className="text-blue-500 text-base leading-[1.4] font-bold mb-2 md:text-lg md:leading-[1.4] md:mb-3">
           {featureName}
         </h2>
         <h1 className="font-bold text-2xl leading-[1.4] md:text-4xl md:leading-[1.4] lg:text-[40px] lg:leading-[1.4]">

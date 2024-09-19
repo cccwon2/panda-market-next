@@ -26,7 +26,12 @@ const getPageSize = () => {
   }
 };
 
-const AllItemsSection: React.FC = () => {
+interface AllItemsSectionProps {
+  width: number;
+  height: number;
+}
+
+const AllItemsSection: React.FC<AllItemsSectionProps> = ({ width, height }) => {
   const [orderBy, setOrderBy] = useState<ProductSortOption>("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());
@@ -123,7 +128,12 @@ const AllItemsSection: React.FC = () => {
 
         <div className="grid grid-cols-2 gap-8 sm:gap-2 md:grid-cols-3 lg:grid-cols-5 lg:gap-6">
           {itemList?.map((item) => (
-            <ItemCard item={item} key={`market-item-${item.id}`} />
+            <ItemCard
+              item={item}
+              key={`market-item-${item.id}`}
+              width={width}
+              height={height}
+            />
           ))}
         </div>
 
