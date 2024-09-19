@@ -13,7 +13,6 @@ import {
   ProductSortOption,
 } from "@/types/product-types";
 import Link from "next/link";
-import theme from "@/styles/theme";
 
 const getPageSize = () => {
   const width = window.innerWidth;
@@ -91,36 +90,18 @@ const AllItemsSection: React.FC<AllItemsSectionProps> = ({ width, height }) => {
 
       <div>
         <div className="flex justify-between items-center pb-2">
-          <h1
-            className="text-gray-900 font-bold text-xl"
-            style={{ color: theme.colors.gray[900] }}
-          >
-            판매 중인 상품
-          </h1>
-          <Link
-            href="/additem"
-            className="text-blue-500 hover:text-blue-600"
-            style={{ color: theme.colors.blue.primary }}
-          >
+          <h1 className="text-gray-900 font-bold text-xl">판매 중인 상품</h1>
+          <Link href="/additem" className="text-blue-500 hover:text-blue-600">
             상품 등록하기
           </Link>
         </div>
 
         <div className="flex justify-between items-center pb-4">
-          <div
-            className="flex bg-gray-100 rounded-xl p-2 flex-1 items-center"
-            style={{ backgroundColor: theme.colors.gray[100] }}
-          >
+          <div className="flex bg-gray-100 rounded-xl p-2 flex-1 items-center">
             <SearchIcon />
             <input
-              className="border-none flex-1 ml-1 bg-transparent placeholder-gray-400 focus:outline-none"
+              className="border-none flex-1 ml-1 bg-transparent placeholder-gray-400 focus:outline-none text-gray-900"
               placeholder="검색할 상품을 입력해 주세요"
-              style={
-                {
-                  color: theme.colors.gray[900],
-                  "::placeholder": { color: theme.colors.gray[400] },
-                } as React.CSSProperties
-              }
             />
           </div>
           <DropdownMenu onSortSelection={handleSortSelection} />
