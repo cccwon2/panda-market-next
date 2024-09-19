@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import TagDisplay from "./TagDisplay";
 import LikeButton from "./LikeButton";
-import theme from "@/styles/theme";
 import SeeMoreIcon from "@/images/icons/ic_kebab.svg";
 import { Product } from "@/types/product-types";
 
@@ -19,10 +18,8 @@ const ItemProfileSection: React.FC<ItemProfileSectionProps> = ({ product }) => {
   };
 
   return (
-    <section
-      className={`flex flex-col gap-4 ${theme.mediaQuery.tablet} flex-row ${theme.mediaQuery.desktop} gap-6`}
-    >
-      <div className={`w-full ${theme.mediaQuery.tablet} w-2/5 max-w-[486px]`}>
+    <section className="flex flex-col gap-4 md:flex-row lg:gap-6">
+      <div className="w-full md:w-2/5 md:max-w-[486px]">
         <Image
           src={product.images[0]}
           alt={`${product.name} 상품 대표 사진`}
@@ -39,14 +36,10 @@ const ItemProfileSection: React.FC<ItemProfileSectionProps> = ({ product }) => {
           </button>
 
           <div>
-            <h1
-              className={`text-base font-semibold mb-2 ${theme.mediaQuery.tablet} text-xl mb-3 ${theme.mediaQuery.desktop} text-2xl mb-4`}
-            >
+            <h1 className="text-base font-semibold mb-2 md:text-xl md:mb-3 lg:text-2xl lg:mb-4">
               {product.name}
             </h1>
-            <h2
-              className={`text-2xl font-semibold ${theme.mediaQuery.tablet} text-3xl ${theme.mediaQuery.desktop} text-4xl`}
-            >
+            <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">
               {product.price.toLocaleString()}원
             </h2>
           </div>
