@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
           </div>
           <Link
             href="/items"
-            className="inline-block mt-[30px] px-8 py-4 w-[20vw] min-w-[200px] max-w-[340px] bg-blue-500 text-white rounded-full font-bold text-lg hover:bg-blue-600 transition-colors duration-300"
+            className="mt-[30px] px-8 py-4 w-[20vw] min-w-[200px] max-w-[340px] bg-blue-500 text-white rounded-full font-bold text-lg hover:bg-blue-600 transition-colors duration-300"
           >
             구경하러 가기
           </Link>

@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         inherit: "inherit",
+        pretendard: ["var(--font-pretendard)"],
       },
     },
   },

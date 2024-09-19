@@ -17,7 +17,10 @@ const Footer: React.FC = () => (
     {/* Footer Menu Links */}
     <div className="flex gap-6 text-gray-200">
       <Link href="/privacy" className="hover:text-white">
-        Privacy Policy
+        Privacy
+      </Link>
+      <Link href="/policy" className="hover:text-white">
+        Policy
       </Link>
       <Link href="/faq" className="hover:text-white">
         FAQ
