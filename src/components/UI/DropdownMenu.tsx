@@ -4,7 +4,7 @@
 import React from "react";
 import { useState } from "react";
 import { ProductSortOption } from "@/types/product-types";
-import SortIcon from "@/app/assets/images/icons/ic_sort.svg";
+import SortIcon from "@/images/icons/ic_sort.svg";
 
 interface DropdownMenuProps {
   onSortSelection: (sortOption: ProductSortOption) => void;

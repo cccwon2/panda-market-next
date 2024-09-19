@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "@/app/assets/images/logo/logo.svg";
+import Logo from "@/images/logo/logo.svg";
 
 export default function Header() {
   return (

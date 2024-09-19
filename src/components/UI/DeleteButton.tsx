@@ -2,7 +2,7 @@
 "use client"; // 클라이언트 전용임을 명시
 
 import React from "react";
-import CloseIcon from "@/app/assets/images/icons/ic_x.svg";
+import CloseIcon from "@/images/icons/ic_x.svg";
 
 interface DeleteButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;

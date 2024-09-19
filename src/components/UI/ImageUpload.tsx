@@ -3,7 +3,7 @@
 
 import React, { ChangeEvent, useState } from "react";
 import Label from "./InputItem";
-import PlusIcon from "@/app/assets/images/icons/ic_plus.svg";
+import PlusIcon from "@/images/icons/ic_plus.svg";
 import DeleteButton from "./DeleteButton";
 
 interface ImageUploadProps {

@@ -5,11 +5,11 @@ import Link from "next/link";
 import Footer from "@/components/Layout/Footer";
 import Feature from "@/components/UI/Feature";
 import theme from "@/styles/theme";
-import heroImage from "@/app/assets/images/home/hero-image.png";
-import bottomBannerImage from "@/app/assets/images/home/bottom-banner-image.png";
-import feature1Image from "@/app/assets/images/home/feature1-image.png";
-import feature2Image from "@/app/assets/images/home/feature2-image.png";
-import feature3Image from "@/app/assets/images/home/feature3-image.png";
+import heroImage from "@/images/home/hero-image.png";
+import bottomBannerImage from "@/images/home/bottom-banner-image.png";
+import feature1Image from "@/images/home/feature1-image.png";
+import feature2Image from "@/images/home/feature2-image.png";
+import feature3Image from "@/images/home/feature3-image.png";
 
 const HomePage: React.FC = () => {
   return (
@@ -39,6 +39,7 @@ const HomePage: React.FC = () => {
           featureName="Hot item"
           title="인기 상품을 확인해 보세요"
           description="가장 HOT한 중고거래 물품을 판다마켓에서 확인해 보세요"
+          direction="row"
         />
         <Feature
           image={feature2Image.src}
@@ -54,6 +55,7 @@ const HomePage: React.FC = () => {
           featureName="Register"
           title="판매를 원하는 상품을 등록하세요"
           description="어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요"
+          direction="row"
         />
       </section>
 

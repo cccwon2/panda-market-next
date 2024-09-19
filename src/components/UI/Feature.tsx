@@ -24,10 +24,18 @@ const Feature: React.FC<FeatureProps> = ({
   return (
     <div
       className={`mb-16 flex flex-col ${
-        direction === "row-reverse" ? "md:flex-row-reverse" : "md:flex-row"
-      } md:items-center md:gap-[5%] md:mb-[138px]`}
+        direction === "row-reverse" ? "lg:flex-row-reverse" : "lg:flex-row"
+      } lg:items-center lg:gap-[5%] lg:mb-[138px]`}
     >
-      <Image src={image} alt={alt} className="w-full mb-5 md:w-1/2 md:mb-0" />
+      <div className="w-full lg:w-1/2 mb-5 lg:mb-0">
+        <Image
+          src={image}
+          alt={alt}
+          width={576}
+          height={434}
+          className="w-full"
+        />
+      </div>
       <div className="flex-1">
         <h2
           className={`text-[${theme.colors.blue}] text-base leading-[1.4] font-bold mb-2 md:text-lg md:leading-[1.4] md:mb-3`}

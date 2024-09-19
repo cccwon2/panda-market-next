@@ -3,8 +3,8 @@
 
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import googleLogo from "@/app/assets/images/social/google-logo.png";
-import kakaoLogo from "@/app/assets/images/social/kakao-logo.png";
+import googleLogo from "@/images/social/google-logo.png";
+import kakaoLogo from "@/images/social/kakao-logo.png";
 
 interface SocialLoginLinkProps {
   name: string;

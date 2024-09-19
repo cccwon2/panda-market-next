@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { getProducts } from "@/api/itemApi";
 import ItemCard from "./ItemCard";
-import SearchIcon from "@/app/assets/images/icons/ic_search.svg";
+import SearchIcon from "@/images/icons/ic_search.svg";
 import DropdownMenu from "@/components/UI/DropdownMenu";
 import PaginationBar from "@/components/UI/PaginationBar";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";

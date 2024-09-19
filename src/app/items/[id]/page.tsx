@@ -6,7 +6,7 @@ import Link from "next/link";
 import { getProductDetail } from "@/api/itemApi";
 import ItemProfileSection from "@/components/UI/item/ItemProfileSection";
 import ItemCommentSection from "@/components/UI/item/ItemCommentSection";
-import BackIcon from "@/app/assets/images/icons/ic_back.svg";
+import BackIcon from "@/images/icons/ic_back.svg";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { Product } from "@/types/product-types";
 

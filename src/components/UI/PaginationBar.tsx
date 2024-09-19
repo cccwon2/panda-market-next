@@ -2,8 +2,8 @@
 "use client"; // 클라이언트 전용임을 명시
 
 import React from "react";
-import LeftArrow from "@/app/assets/images/icons/arrow_left.svg";
-import RightArrow from "@/app/assets/images/icons/arrow_right.svg";
+import LeftArrow from "@/images/icons/arrow_left.svg";
+import RightArrow from "@/images/icons/arrow_right.svg";
 
 interface PaginationBarProps {
   totalPageNum: number;

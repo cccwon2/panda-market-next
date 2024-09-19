@@ -4,6 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "@/images/logo/logo.svg";
 
 export const AuthContainer: React.FC<React.PropsWithChildren> = ({
   children,
@@ -16,7 +17,7 @@ export const AuthContainer: React.FC<React.PropsWithChildren> = ({
 export const LogoHomeLink: React.FC = () => (
   <Link href="/" className="block mb-6 text-center md:mb-10">
     <Image
-      src="/path-to-your-logo.png"
+      src={Logo}
       alt="Logo"
       width={198}
       height={50}
