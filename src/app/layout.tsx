@@ -22,9 +22,9 @@ export default function RootLayout({
         <main
           className="min-h-screen"
           style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            padding: "0 1rem",
+            minWidth: "400px",
+            margin: "0",
+            padding: "0",
           }}
         >
           {children}
