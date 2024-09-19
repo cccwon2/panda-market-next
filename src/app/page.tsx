@@ -1,101 +1,76 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from "react";
+import Link from "next/link";
+import Feature from "@/components/UI/Feature";
+import heroImage from "@/images/home/hero-image.png";
+import bottomBannerImage from "@/images/home/bottom-banner-image.png";
+import feature1Image from "@/images/home/feature1-image.png";
+import feature2Image from "@/images/home/feature2-image.png";
+import feature3Image from "@/images/home/feature3-image.png";
+
+const HomePage: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <section
+        className="bg-blue-500 h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]"
+        style={{ backgroundImage: `url(${heroImage.src})` }}
+      >
+        <div className="lg:max-w-[1200px] lg:w-full lg:mx-auto">
+          <h1 className="font-bold text-3xl leading-[44.8px] pt-12 md:text-4xl md:leading-[56px] md:pt-[84px] md:pb-6 lg:pt-0 lg:pb-8">
+            일상의 모든 물건을 <br className="md:hidden lg:inline" />
+            거래해 보세요
+          </h1>
+          <Link
+            href="/items"
+            className="inline-block px-6 py-3 bg-blue-500 text-white rounded-full font-medium"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            구경하러 가기
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section className="py-[51px] px-4 md:py-6 md:px-6 lg:py-[138px] lg:px-6 lg:max-w-[1200px] lg:mx-auto">
+        <Feature
+          image={feature1Image.src}
+          alt="인기 상품"
+          featureName="Hot item"
+          title="인기 상품을 확인해 보세요"
+          description="가장 HOT한 중고거래 물품을 판다마켓에서 확인해 보세요"
+          direction="row"
+        />
+        <Feature
+          image={feature2Image.src}
+          alt="검색 기능"
+          featureName="Search"
+          title="구매를 원하는 상품을 검색하세요"
+          description="구매하고 싶은 물품은 검색해서 쉽게 찾아보세요"
+          direction="row-reverse"
+        />
+        <Feature
+          image={feature3Image.src}
+          alt="판매 상품 등록"
+          featureName="Register"
+          title="판매를 원하는 상품을 등록하세요"
+          description="어떤 물건이든 판매하고 싶은 상품을 쉽게 등록하세요"
+          direction="row"
+        />
+      </section>
+
+      <section
+        className="bg-blue-500 h-[60vh] text-center bg-no-repeat bg-bottom bg-[length:130%] md:h-[90vh] md:bg-[length:120%] lg:text-left lg:h-[540px] lg:flex lg:flex-col lg:justify-center lg:bg-[80%_bottom] lg:bg-[length:55%]"
+        style={{ backgroundImage: `url(${bottomBannerImage.src})` }}
+      >
+        <div className="lg:max-w-[1200px] lg:w-full lg:mx-auto">
+          <h1 className="font-bold text-3xl leading-[44.8px] pt-12 md:text-4xl md:leading-[56px] md:pt-[84px] md:pb-6 lg:pt-0 lg:pb-8">
+            믿을 수 있는
+            <br />
+            판다마켓 중고거래
+          </h1>
+        </div>
+      </section>
+    </>
   );
-}
+};
+
+export default HomePage;
