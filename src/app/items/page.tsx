@@ -17,7 +17,7 @@ const MarketPage: React.FC = () => {
   }
 
   return (
-    <div className="container">
+    <div className="max-w-screen-xl mx-auto px-4">
       <BestItemsSection width={282} height={282} />
       <AllItemsSection width={220} height={220} />
     </div>
