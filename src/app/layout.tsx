@@ -2,6 +2,7 @@ import React from "react";
 import "@/styles/global-styles.css";
 import FooterWrapper from "@/components/Layout/FooterWrapper";
 import ClientLayout from "@/components/Layout/ClientLayout";
+import Header from "@/components/Layout/Header";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
         <link rel="ico" href="favicon.ico" />
       </head>
       <ClientLayout>
+        <Header />
         <main
           className="min-h-screen"
           style={{
