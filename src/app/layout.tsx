@@ -1,8 +1,9 @@
 import React from "react";
+import Head from "next/head";
 import "@/styles/global-styles.css";
 import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
-import ClientLayout from "./ClientLayout";
+import FooterWrapper from "@/components/Layout/FooterWrapper";
+import ClientLayout from "@/components/Layout/ClientLayout";
 
 export default function RootLayout({
   children,
@@ -11,9 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <head>
+      <Head>
         <title>판다마켓</title>
-      </head>
+        <link rel="ico" href="favicon.ico" />
+      </Head>
       <ClientLayout>
         <Header />
         <main
@@ -26,7 +28,7 @@ export default function RootLayout({
         >
           {children}
         </main>
-        <Footer />
+        <FooterWrapper />
       </ClientLayout>
     </html>
   );
