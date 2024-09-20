@@ -3,7 +3,7 @@ import Logo from "@/images/logo/logo.svg";
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-sm">
       <div className="mx-auto px-4 py-4 flex justify-between items-center w-full">
         <Link href="/" className="mr-8">
           <Logo />
