@@ -1,8 +1,7 @@
-// src/components/UI/InputItem.tsx
-"use client"; // 클라이언트 전용임을 명시
+// src/components/UI/LoadingSpinner.tsx
+"use client";
 
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
 
 interface LoadingSpinnerProps {
@@ -15,18 +14,23 @@ interface LoadingSpinnerProps {
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   isLoading,
   size = 20,
-  color = "var(--blue)",
+  color = "#3692ff",
   minLoadTime = 500,
 }) => {
   const [isVisible, setIsVisible] = useState(isLoading);
 
   useEffect(() => {
+    if (isLoading) {
+      setIsVisible(true);
+      return;
+    }
+
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, minLoadTime);
 
     return () => clearTimeout(timer);
-  }, [minLoadTime]);
+  }, [isLoading, minLoadTime]);
 
   if (!isVisible) return null;
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Link from "next/link";
 import { getProductDetail } from "@/api/itemApi";
 import ItemProfileSection from "@/components/UI/item/ItemProfileSection";
@@ -9,13 +8,16 @@ import ItemCommentSection from "@/components/UI/item/ItemCommentSection";
 import BackIcon from "@/images/icons/ic_back.svg";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { Product } from "@/types/product-types";
+import { useParams } from "next/navigation";
 
 const ItemPage: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const { productId } = useParams();
+  const { params } = useParams();
+  const productId = Array.isArray(params) ? params[0] : params;
+  console.log(productId);
   const productIdNumber = Number(productId);
 
   useEffect(() => {
