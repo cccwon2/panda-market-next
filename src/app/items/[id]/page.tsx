@@ -1,3 +1,4 @@
+// src/app/items/[id]/page.tsx
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -15,10 +16,9 @@ const ItemPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const { params } = useParams();
-  const productId = Array.isArray(params) ? params[0] : params;
-  console.log(productId);
-  const productIdNumber = Number(productId);
+  // useParams()로 id 가져오기
+  const { id } = useParams();
+  const productIdNumber = Number(id); // id를 숫자로 변환
 
   useEffect(() => {
     async function fetchProduct() {
@@ -53,13 +53,12 @@ const ItemPage: React.FC = () => {
     alert(`오류: ${error}`);
   }
 
-  if (!productId || !product) return null;
+  // 로딩 중 또는 데이터가 없을 때 처리
+  if (isLoading || !product) return <LoadingSpinner isLoading={isLoading} />;
 
   return (
     <>
-      <LoadingSpinner isLoading={isLoading} />
-
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto pt-24 px-4">
         <ItemProfileSection product={product} />
 
         <hr className="my-6 border-t border-gray-200" />
