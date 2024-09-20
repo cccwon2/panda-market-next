@@ -72,7 +72,7 @@ const BestItemsSection: React.FC<BestItemsSectionProps> = ({
     <>
       <LoadingSpinner isLoading={isLoading} />
 
-      <div className="py-4 md:py-6 lg:py-8">
+      <div className="py-4 mt-6 md:py-6 md:mt-12 lg:py-8 lg:mt-12">
         <h1 className="text-gray-900 font-bold text-xl mb-4">베스트 상품</h1>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
