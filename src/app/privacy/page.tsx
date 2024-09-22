@@ -1,7 +1,5 @@
 "use client";
 
-const PrivacyPage: React.FC = () => {
+export default function PrivacyPage() {
   return <div>PolicyPage</div>;
-};
-
-export default PrivacyPage;
+}

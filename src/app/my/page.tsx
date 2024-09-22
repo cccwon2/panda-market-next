@@ -3,8 +3,6 @@
 import React from "react";
 import "@/styles/common-styles.css";
 
-const MyPage: React.FC = () => {
+export default function MyPage() {
   return <div className="container">MyPage</div>;
-};
-
-export default MyPage;
+}

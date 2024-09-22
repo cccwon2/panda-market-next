@@ -7,10 +7,7 @@ import EmptyStateImage from "@/images/ui/empty-comments.svg";
 import SeeMoreIcon from "@/images/icons/ic_kebab.svg";
 import DefaultProfileImage from "@/images/ui/ic_profile.svg";
 import { formatUpdatedAt } from "@/utils/dateUtils";
-import {
-  ProductComment,
-  ProductCommentListResponse,
-} from "@/types/comment-types";
+import { ProductComment, ProductCommentListResponse } from "@/types/comment";
 import Image from "next/image";
 
 interface CommentItemProps {
@@ -32,13 +29,17 @@ const CommentItem: React.FC<CommentItemProps> = ({ item }) => {
         <p className="text-base leading-[140%] mb-6">{item.content}</p>
 
         <div className="flex items-center gap-2">
-          <Image
-            src={authorInfo.image || DefaultProfileImage}
-            alt={`${authorInfo.nickname}님의 프로필 사진`}
-            width={40}
-            height={40}
-            className="rounded-full object-cover"
-          />
+          {authorInfo.image ? (
+            <Image
+              src={authorInfo.image}
+              alt={`${authorInfo.nickname}님의 프로필 사진`}
+              width={40}
+              height={40}
+              className="rounded-full object-cover"
+            />
+          ) : (
+            <DefaultProfileImage className="w-10 h-10 rounded-full" />
+          )}
 
           <div>
             <p className="text-gray-600 text-sm mb-1">{authorInfo.nickname}</p>
