@@ -5,7 +5,7 @@ import InputItem from "@/components/UI/InputItem";
 import TagInput from "@/components/UI/TagInput";
 import ImageUpload from "@/components/UI/ImageUpload";
 
-const AddItemPage: React.FC = () => {
+export default function AddItemPage() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -75,6 +75,4 @@ const AddItemPage: React.FC = () => {
       </form>
     </div>
   );
-};
-
-export default AddItemPage;
+}

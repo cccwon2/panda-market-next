@@ -2,8 +2,6 @@
 
 import React from "react";
 
-const FaqPage: React.FC = () => {
+export default function FaqPage() {
   return <div>FaqPage</div>;
-};
-
-export default FaqPage;
+}

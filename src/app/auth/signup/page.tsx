@@ -10,9 +10,9 @@ import InputItem from "@/components/UI/InputItem";
 import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
 import { requestSignup } from "@/api/authApi";
-import { SignupFormValues } from "@/types/auth-types";
+import { SignupFormValues } from "@/types/auth";
 
-const SignupPage: React.FC = () => {
+export default function SignupPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -153,6 +153,4 @@ const SignupPage: React.FC = () => {
       </div>
     </main>
   );
-};
-
-export default SignupPage;
+}

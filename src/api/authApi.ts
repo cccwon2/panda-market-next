@@ -1,4 +1,4 @@
-import { LoginFormValues, SignupFormValues } from "../types/auth-types";
+import { LoginFormValues, SignupFormValues } from "../types/auth";
 
 export const requestSignup = async (
   data: SignupFormValues

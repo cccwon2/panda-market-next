@@ -10,9 +10,9 @@ import InputItem from "@/components/UI/InputItem";
 import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
 import { requestLogin } from "@/api/authApi";
-import { LoginFormValues, LoginResponse } from "@/types/auth-types";
+import { LoginFormValues, AuthResponse } from "@/types/auth";
 
-const LoginPage: React.FC = () => {
+export default function LoginPage() {
   const router = useRouter();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
     };
 
     try {
-      const result = (await requestLogin(trimmedData)) as LoginResponse;
+      const result = (await requestLogin(trimmedData)) as AuthResponse;
       console.log(result);
 
       if (typeof window !== "undefined") {
@@ -122,6 +122,4 @@ const LoginPage: React.FC = () => {
       </div>
     </main>
   );
-};
-
-export default LoginPage;
+}

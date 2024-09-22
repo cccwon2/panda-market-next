@@ -11,7 +11,7 @@ import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { Product } from "@/types/product-types";
 import { useParams } from "next/navigation";
 
-const ItemPage: React.FC = () => {
+export default function ItemPage() {
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -75,6 +75,4 @@ const ItemPage: React.FC = () => {
       </div>
     </>
   );
-};
-
-export default ItemPage;
+}

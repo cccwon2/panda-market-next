@@ -9,7 +9,7 @@ import feature1Image from "@/images/home/feature1-image.png";
 import feature2Image from "@/images/home/feature2-image.png";
 import feature3Image from "@/images/home/feature3-image.png";
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
     <>
       <section
@@ -71,6 +71,4 @@ const HomePage: React.FC = () => {
       </section>
     </>
   );
-};
-
-export default HomePage;
+}
