@@ -13,7 +13,7 @@ interface ItemCardProps {
   height?: number;
 }
 
-const ItemCard: React.FC<ItemCardProps> = ({ item, width, height }) => {
+const ItemCard = ({ item, width, height }: ItemCardProps) => {
   return (
     <Link
       href={`/items/${item.id}`}

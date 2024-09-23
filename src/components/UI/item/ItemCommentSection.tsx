@@ -10,9 +10,7 @@ interface ItemCommentSectionProps {
   productId: number;
 }
 
-const ItemCommentSection: React.FC<ItemCommentSectionProps> = ({
-  productId,
-}) => {
+const ItemCommentSection = ({ productId }: ItemCommentSectionProps) => {
   const [comment, setComment] = useState("");
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {

@@ -10,10 +10,10 @@ interface LikeButtonProps {
   onLike: unknown;
 }
 
-const LikeButton: React.FC<LikeButtonProps> = ({
+const LikeButton = ({
   isFavorite: initialIsFavorite,
   favoriteCount: initialFavoriteCount,
-}) => {
+}: LikeButtonProps) => {
   const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
   const [favoriteCount, setFavoriteCount] = useState(initialFavoriteCount);
 

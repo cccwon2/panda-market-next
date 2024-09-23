@@ -11,12 +11,12 @@ interface LoadingSpinnerProps {
   minLoadTime?: number;
 }
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
+const LoadingSpinner = ({
   isLoading,
   size = 20,
   color = "#3692ff",
   minLoadTime = 500,
-}) => {
+}: LoadingSpinnerProps) => {
   const [isVisible, setIsVisible] = useState(isLoading);
 
   useEffect(() => {

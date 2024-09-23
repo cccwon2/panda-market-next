@@ -9,7 +9,7 @@ interface DeleteButtonProps {
   label: string;
 }
 
-const DeleteButton: React.FC<DeleteButtonProps> = ({ onClick, label }) => {
+const DeleteButton = ({ onClick, label }: DeleteButtonProps) => {
   return (
     <button
       className="w-5 h-5 bg-gray-400 rounded-full flex justify-center items-center hover:bg-blue-500 transition-colors duration-200"

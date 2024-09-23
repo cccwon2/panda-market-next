@@ -7,7 +7,7 @@ import YoutubeLogo from "@/images/social/youtube-logo.svg";
 import InstagramLogo from "@/images/social/instagram-logo.svg";
 import Link from "next/link";
 
-const Footer: React.FC = () => (
+const Footer = () => (
   <footer className="bg-gray-900 text-gray-400 text-base p-8 flex justify-between items-center flex-wrap gap-6 md:px-[104px] md:pb-[108px] lg:px-[200px] lg:pb-[108px]">
     {/* Copyright Section */}
     <div className="order-3 w-full md:order-none md:w-auto text-center md:text-left">

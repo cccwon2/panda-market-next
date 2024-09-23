@@ -6,7 +6,7 @@ interface TagDisplayProps {
   tags: string[];
 }
 
-const TagDisplay: React.FC<TagDisplayProps> = ({ tags }) => {
+const TagDisplay = ({ tags }: TagDisplayProps) => {
   if (!tags || tags.length === 0) return null;
 
   return (

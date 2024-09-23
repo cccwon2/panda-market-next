@@ -11,11 +11,11 @@ interface PaginationBarProps {
   onPageChange: (pageNumber: number) => void;
 }
 
-const PaginationBar: React.FC<PaginationBarProps> = ({
+const PaginationBar = ({
   totalPageNum,
   activePageNum,
   onPageChange,
-}) => {
+}: PaginationBarProps) => {
   const maxVisiblePages = 5;
   let startPage: number;
 

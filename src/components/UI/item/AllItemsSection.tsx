@@ -30,7 +30,7 @@ interface AllItemsSectionProps {
   height: number;
 }
 
-const AllItemsSection: React.FC<AllItemsSectionProps> = ({ width, height }) => {
+const AllItemsSection = ({ width, height }: AllItemsSectionProps) => {
   const [orderBy, setOrderBy] = useState<ProductSortOption>("recent");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(getPageSize());

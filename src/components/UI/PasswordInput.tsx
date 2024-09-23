@@ -16,13 +16,13 @@ interface PasswordInputProps {
   errorMessage?: string;
 }
 
-const PasswordInput: React.FC<PasswordInputProps> = ({
+const PasswordInput = ({
   id,
   label,
   placeholder,
   register,
   errorMessage,
-}) => {
+}: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {

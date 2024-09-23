@@ -12,14 +12,14 @@ interface FeatureProps {
   direction?: "row" | "row-reverse";
 }
 
-const Feature: React.FC<FeatureProps> = ({
+const Feature = ({
   image,
   alt,
   featureName,
   title,
   description,
   direction = "row",
-}) => {
+}: FeatureProps) => {
   return (
     <div
       className={`mb-16 flex flex-col ${

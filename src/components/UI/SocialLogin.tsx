@@ -12,11 +12,7 @@ interface SocialLoginLinkProps {
   logoSrc: string | StaticImageData;
 }
 
-const SocialLoginLink: React.FC<SocialLoginLinkProps> = ({
-  name,
-  url,
-  logoSrc,
-}) => {
+const SocialLoginLink = ({ name, url, logoSrc }: SocialLoginLinkProps) => {
   return (
     <a
       href={url}
@@ -30,7 +26,7 @@ const SocialLoginLink: React.FC<SocialLoginLinkProps> = ({
   );
 };
 
-const SocialLogin: React.FC = () => {
+const SocialLogin = () => {
   return (
     <div className="bg-blue-100 rounded-lg flex items-center justify-between p-4 my-6">
       <h3 className="font-medium text-base">간편 로그인하기</h3>

@@ -1,11 +1,7 @@
 import { isAxiosError } from "axios";
 import axiosInstance from "./axiosConfig";
 import Cookies from "js-cookie";
-import {
-  SigninFormValues,
-  SignupFormValues,
-  AuthResponse,
-} from "../types/auth";
+import { LoginFormValues, SignupFormValues, AuthResponse } from "../types/auth";
 import DefaultAvatar from "@/images/ui/ic_profile.svg";
 
 const setUserImage = (image: string | null) => {
@@ -20,8 +16,8 @@ const setCookie = (name: string, value: string, expires: number) => {
   Cookies.set(name, value, { expires, secure: true, sameSite: "strict" });
 };
 
-export const signIn = async (
-  formData: SigninFormValues
+export const logIn = async (
+  formData: LoginFormValues
 ): Promise<AuthResponse | null> => {
   try {
     const response = await axiosInstance.post("/auth/signIn", formData);
@@ -53,7 +49,7 @@ export const signIn = async (
   }
 };
 
-export const signUp = async (
+export const signup = async (
   formData: SignupFormValues
 ): Promise<AuthResponse | null> => {
   try {
@@ -86,7 +82,7 @@ export const signUp = async (
   }
 };
 
-export const signOut = async () => {
+export const logout = async (redirectToSignIn: () => void) => {
   try {
     // 쿠키에서 토큰 및 사용자 정보 제거
     Cookies.remove("accessToken");
@@ -99,7 +95,9 @@ export const signOut = async () => {
     delete axiosInstance.defaults.headers.common["Authorization"];
 
     console.log("로그아웃 성공");
-    // 로그아웃 후 필요한 추가 작업 수행 (예: 상태 초기화, 리다이렉션 등)
+
+    // 로그아웃 후 signin 페이지로 리다이렉션
+    redirectToSignIn();
   } catch (error) {
     console.error("로그아웃 중 오류 발생:", error);
   }

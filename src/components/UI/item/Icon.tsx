@@ -6,13 +6,13 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   fillColor?: string;
 }
 
-const Icon: React.FC<IconProps> = ({
+const Icon = ({
   iconComponent: IconComponent,
   size,
   fillColor,
   className,
   ...props
-}) => {
+}: IconProps) => {
   return (
     <IconComponent
       width={size}

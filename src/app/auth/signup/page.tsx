@@ -9,7 +9,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import InputItem from "@/components/UI/InputItem";
 import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
-import { requestSignup } from "@/api/authApi";
+import { signup } from "@/api/authApi";
 import { SignupFormValues } from "@/types/auth";
 
 export default function SignupPage() {
@@ -51,7 +51,7 @@ export default function SignupPage() {
     };
 
     try {
-      const result = await requestSignup(trimmedData);
+      const result = await signup(trimmedData);
       console.log(result);
       router.push("/login");
     } catch (error) {
@@ -114,6 +114,10 @@ export default function SignupPage() {
             minLength: {
               value: 8,
               message: "비밀번호를 8자 이상 입력해 주세요",
+            },
+            pattern: {
+              value: /^([a-z]|[A-Z]|[0-9]|[!@#$%^&*])+$/,
+              message: "영문, 숫자, 특수문자(!@#$%^&*)만 사용 가능합니다",
             },
           })}
           errorMessage={errors.password?.message}

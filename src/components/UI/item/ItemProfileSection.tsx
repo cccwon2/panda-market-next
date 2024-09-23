@@ -11,7 +11,7 @@ interface ItemProfileSectionProps {
   product: Product;
 }
 
-const ItemProfileSection: React.FC<ItemProfileSectionProps> = ({ product }) => {
+const ItemProfileSection = ({ product }: ItemProfileSectionProps) => {
   const handleLike = () => {
     // 여기에 좋아요 처리 로직을 구현하세요
     console.log(`상품 ${product.id} 좋아요 토글`);

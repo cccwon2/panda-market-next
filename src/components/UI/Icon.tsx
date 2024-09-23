@@ -10,12 +10,12 @@ interface IconProps {
   outlineColor?: string;
 }
 
-const Icon: React.FC<IconProps> = ({
+const Icon = ({
   iconComponent: IconComponent,
   size,
   fillColor = "currentColor",
   outlineColor = "currentColor",
-}) => (
+}: IconProps) => (
   <div
     className={`
       inline-flex items-center justify-center

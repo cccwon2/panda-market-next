@@ -14,7 +14,7 @@ interface CommentItemProps {
   item: ProductComment;
 }
 
-const CommentItem: React.FC<CommentItemProps> = ({ item }) => {
+const CommentItem = ({ item }: CommentItemProps) => {
   const authorInfo = item.writer;
   const formattedTimestamp = formatUpdatedAt(item.updatedAt);
 
@@ -66,7 +66,7 @@ interface CommentThreadProps {
   productId: number;
 }
 
-const CommentThread: React.FC<CommentThreadProps> = ({ productId }) => {
+const CommentThread = ({ productId }: CommentThreadProps) => {
   const [comments, setComments] = useState<ProductComment[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

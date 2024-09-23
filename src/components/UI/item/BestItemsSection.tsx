@@ -26,10 +26,7 @@ interface BestItemsSectionProps {
   height: number;
 }
 
-const BestItemsSection: React.FC<BestItemsSectionProps> = ({
-  width,
-  height,
-}) => {
+const BestItemsSection = ({ width, height }: BestItemsSectionProps) => {
   const [itemList, setItemList] = useState<Product[]>([]);
   const [pageSize, setPageSize] = useState(getPageSize());
   const [isLoading, setIsLoading] = useState(true);

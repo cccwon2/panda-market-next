@@ -12,7 +12,7 @@ interface TagInputProps {
   onRemoveTag: (tag: string) => void;
 }
 
-const TagInput: React.FC<TagInputProps> = ({ tags, onAddTag, onRemoveTag }) => {
+const TagInput = ({ tags, onAddTag, onRemoveTag }: TagInputProps) => {
   const [input, setInput] = useState("");
 
   const onPressEnter = (event: KeyboardEvent<HTMLInputElement>) => {

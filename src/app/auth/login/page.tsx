@@ -9,7 +9,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import InputItem from "@/components/UI/InputItem";
 import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
-import { requestLogin } from "@/api/authApi";
+import { logIn } from "@/api/authApi";
 import { LoginFormValues, AuthResponse } from "@/types/auth";
 
 export default function LoginPage() {
@@ -39,7 +39,7 @@ export default function LoginPage() {
     };
 
     try {
-      const result = (await requestLogin(trimmedData)) as AuthResponse;
+      const result = (await logIn(trimmedData)) as AuthResponse;
       console.log(result);
 
       if (typeof window !== "undefined") {

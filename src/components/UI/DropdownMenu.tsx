@@ -10,7 +10,7 @@ interface DropdownMenuProps {
   onSortSelection: (sortOption: ProductSortOption) => void;
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ onSortSelection }) => {
+const DropdownMenu = ({ onSortSelection }: DropdownMenuProps) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {

@@ -10,7 +10,7 @@ interface ImageUploadProps {
   title: string;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ title }) => {
+const ImageUpload = ({ title }: ImageUploadProps) => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
