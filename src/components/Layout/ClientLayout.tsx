@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import { usePathname, useSearchParams } from "next/navigation";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { Provider, useAtomValue, useSetAtom } from "jotai";
-import { loadingAtom } from "@/store/atoms/loadingAtom"; // loadingAtom import
+import { loadingAtom } from "@/store/loadingAtom"; // loadingAtom import
 
 const pretendard = localFont({
   src: "../../fonts/pretendard/PretendardVariable.woff2",

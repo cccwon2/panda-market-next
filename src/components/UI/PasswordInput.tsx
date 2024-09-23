@@ -45,9 +45,9 @@ const PasswordInput = ({
         aria-label="비밀번호 보기"
       >
         {showPassword ? (
-          <EyeVisibleIcon className="w-6 h-6" />
+          <EyeVisibleIcon className="mt-8 w-6 h-6 md:mt-10" />
         ) : (
-          <EyeInvisibleIcon className="w-6 h-6" />
+          <EyeInvisibleIcon className="mt-8 w-6 h-6 md:mt-10" />
         )}
       </button>
     </div>

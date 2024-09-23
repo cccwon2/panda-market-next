@@ -10,14 +10,20 @@ import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
 import { logIn } from "@/api/authApi";
 import { LoginFormValues, AuthResponse } from "@/types/auth";
-import Logo from "@/images/logo/logo.svg";
+import Logo from "@/images/logo/logo-auth.svg";
+import Cookies from "js-cookie";
+import { useSetAtom } from "jotai";
+import { userIdAtom, nicknameAtom, userImageAtom } from "@/store/auth";
 
 export default function LoginPage() {
   const router = useRouter();
+  const setUserId = useSetAtom(userIdAtom);
+  const setNickname = useSetAtom(nicknameAtom);
+  const setUserImage = useSetAtom(userImageAtom);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = Cookies.get("accessToken");
       if (accessToken) {
         router.push("/");
       }
@@ -40,11 +46,19 @@ export default function LoginPage() {
 
     try {
       const result = (await logIn(trimmedData)) as AuthResponse;
-      console.log(result);
+      const resultUserImage = result.user.image ? result.user.image : "";
 
-      if (typeof window !== "undefined") {
-        localStorage.setItem("accessToken", result.accessToken as string);
-      }
+      console.log("Auth Response: ", result);
+
+      Cookies.set("accessToken", result.accessToken);
+      Cookies.set("refreshToken", result.refreshToken);
+      Cookies.set("userId", result.user.id.toString());
+      Cookies.set("userImage", resultUserImage);
+      Cookies.set("nickname", result.user.nickname);
+
+      setUserId(result.user.id.toString());
+      setNickname(result.user.nickname);
+      setUserImage(result.user.image);
 
       router.push("/");
     } catch (error) {
@@ -54,16 +68,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
-      <Link
-        href="/"
-        className="block mb-6 text-center md:mb-10"
-        aria-label="홈으로 이동"
-      >
-        <Logo className="w-[198px] md:w-[396px] mx-auto" />
+    <div className="mt-70px px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
+      <Link href="/" className="md:mb-10" aria-label="홈으로 이동">
+        <Logo className="mx-auto" />
       </Link>
 
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="mt-10 flex flex-col gap-6"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <InputItem
           id="email"
           label="이메일"

@@ -10,14 +10,15 @@ import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
 import { signup } from "@/api/authApi";
 import { SignupFormValues } from "@/types/auth";
-import Logo from "@/images/logo/logo.svg";
+import Logo from "@/images/logo/logo-auth.svg";
+import Cookies from "js-cookie";
 
 export default function SignupPage() {
   const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = Cookies.get("accessToken");
       if (accessToken) {
         router.push("/");
       }
@@ -61,16 +62,19 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
+    <div className="mt-70px px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
       <Link
         href="/"
         className="block mb-6 text-center md:mb-10"
         aria-label="홈으로 이동"
       >
-        <Logo className="w-[198px] md:w-[396px] mx-auto" />
+        <Logo className="mx-auto" />
       </Link>
 
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="mt-10 flex flex-col gap-6"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <InputItem<SignupFormValues>
           id="email"
           label="이메일"
@@ -143,7 +147,7 @@ export default function SignupPage() {
       <div className="font-medium text-sm text-center mt-6">
         이미 회원이신가요?{" "}
         <Link
-          href="/login"
+          href="/auth/login"
           className="text-blue-500 underline underline-offset-2"
         >
           로그인

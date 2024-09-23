@@ -17,6 +17,9 @@ const config: Config = {
         inherit: "inherit",
         pretendard: ["var(--font-pretendard)"],
       },
+      spacing: {
+        "70px": "70px",
+      },
     },
   },
   plugins: [],
