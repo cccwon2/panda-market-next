@@ -19,6 +19,16 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "store.ardanlabs.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "store.storeimages.cdn-apple.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "sprint-fe-project.s3.ap-northeast-2.amazonaws.com",
         pathname: "**",
       },

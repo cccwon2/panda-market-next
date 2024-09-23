@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TagDisplay from "./TagDisplay";
 import LikeButton from "./LikeButton";
 import SeeMoreIcon from "@/images/icons/ic_kebab.svg";
+import NoImage from "@/images/ui/no-image.png";
 import { Product } from "@/types/product-types";
 
 interface ItemProfileSectionProps {
@@ -12,6 +13,31 @@ interface ItemProfileSectionProps {
 }
 
 const ItemProfileSection = ({ product }: ItemProfileSectionProps) => {
+  const [isValidImage, setIsValidImage] = useState(false);
+
+  useEffect(() => {
+    const validateImageUrl = async (url: string) => {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          setIsValidImage(true);
+        } else {
+          console.log("No image available: ", response.status);
+          setIsValidImage(false);
+        }
+      } catch (error) {
+        console.error("No image available: ", error);
+        setIsValidImage(false);
+      }
+    };
+
+    if (product.images[0]) {
+      validateImageUrl(product.images[0]);
+    } else {
+      setIsValidImage(false);
+    }
+  }, [product.images]);
+
   const handleLike = () => {
     // 여기에 좋아요 처리 로직을 구현하세요
     console.log(`상품 ${product.id} 좋아요 토글`);
@@ -21,7 +47,7 @@ const ItemProfileSection = ({ product }: ItemProfileSectionProps) => {
     <section className="flex flex-col gap-4 md:flex-row lg:gap-6">
       <div className="w-full md:w-2/5 md:max-w-[486px]">
         <Image
-          src={product.images[0]}
+          src={isValidImage ? product.images[0] : NoImage}
           alt={`${product.name} 상품 대표 사진`}
           width={486}
           height={486}

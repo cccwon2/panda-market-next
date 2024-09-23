@@ -1,10 +1,11 @@
 // src/components/UI/item/itemCard.tsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import HeartIcon from "@/images/icons/ic_heart.svg";
+import NoImage from "@/images/ui/no-image.png";
 import { Product } from "@/types/product-types";
 
 interface ItemCardProps {
@@ -14,6 +15,31 @@ interface ItemCardProps {
 }
 
 const ItemCard = ({ item, width, height }: ItemCardProps) => {
+  const [isValidImage, setIsValidImage] = useState(false);
+
+  useEffect(() => {
+    const validateImageUrl = async (url: string) => {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          setIsValidImage(true);
+        } else {
+          console.log("No image available: ", response.status);
+          setIsValidImage(false);
+        }
+      } catch (error) {
+        console.error("No image available: ", error);
+        setIsValidImage(false);
+      }
+    };
+
+    if (item.images[0]) {
+      validateImageUrl(item.images[0]);
+    } else {
+      setIsValidImage(false);
+    }
+  }, [item.images]);
+
   return (
     <Link
       href={`/items/${item.id}`}
@@ -21,7 +47,7 @@ const ItemCard = ({ item, width, height }: ItemCardProps) => {
     >
       <div className="w-full pb-[100%] relative mb-4">
         <Image
-          src={item.images[0]}
+          src={isValidImage ? item.images[0] : NoImage}
           alt={`${item.name} 상품 썸네일`}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
           width={width}
