@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -11,6 +10,7 @@ import SocialLogin from "@/components/UI/SocialLogin";
 import PasswordInput from "@/components/UI/PasswordInput";
 import { signup } from "@/api/authApi";
 import { SignupFormValues } from "@/types/auth";
+import Logo from "@/images/logo/logo.svg";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -61,19 +61,13 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
+    <div className="px-4 py-6 max-w-sm mx-auto md:max-w-2xl md:py-12 lg:py-15">
       <Link
         href="/"
         className="block mb-6 text-center md:mb-10"
         aria-label="홈으로 이동"
       >
-        <Image
-          src="/logo.svg"
-          alt="판다마켓 로고"
-          width={198}
-          height={50}
-          className="w-[198px] md:w-[396px]"
-        />
+        <Logo className="w-[198px] md:w-[396px] mx-auto" />
       </Link>
 
       <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
@@ -155,6 +149,6 @@ export default function SignupPage() {
           로그인
         </Link>
       </div>
-    </main>
+    </div>
   );
 }

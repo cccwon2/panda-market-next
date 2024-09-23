@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import localFont from "next/font/local";
 import { usePathname, useSearchParams } from "next/navigation";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
-import { useAtom } from "jotai";
+import { Provider, useAtomValue, useSetAtom } from "jotai";
 import { loadingAtom } from "@/store/atoms/loadingAtom"; // loadingAtom import
 
 const pretendard = localFont({
@@ -15,19 +15,16 @@ const pretendard = localFont({
   variable: "--font-pretendard",
 });
 
-export default function ClientLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function ClientLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [isLoading, setIsLoading] = useAtom(loadingAtom); // Jotai atom 사용
+  const isLoading = useAtomValue(loadingAtom);
+  const setIsLoading = useSetAtom(loadingAtom);
 
   useEffect(() => {
-    setIsLoading(true); // 페이지가 변경될 때 로딩 시작
+    setIsLoading(true);
     const timeoutId = setTimeout(() => {
-      setIsLoading(false); // 일정 시간 후 로딩 종료
+      setIsLoading(false);
     }, 500);
 
     return () => clearTimeout(timeoutId);
@@ -35,9 +32,20 @@ export default function ClientLayout({
 
   return (
     <div className={pretendard.className + " bg-gray-50 text-gray-900"}>
-      {isLoading && <LoadingSpinner isLoading={isLoading} />}{" "}
-      {/* 로딩 상태가 true일 때만 로딩 스피너 표시 */}
+      {isLoading && <LoadingSpinner isLoading={isLoading} />}
       {children}
     </div>
+  );
+}
+
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Provider>
+      <ClientLayoutContent>{children}</ClientLayoutContent>
+    </Provider>
   );
 }

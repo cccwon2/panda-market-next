@@ -2,11 +2,10 @@
 "use client";
 
 import React, { useState } from "react";
-import eyeInvisibleIcon from "@/images/icons/eye-invisible.svg";
-import eyeVisibleIcon from "@/images/icons/eye-visible.svg";
+import EyeInvisibleIcon from "@/images/icons/eye-invisible.svg";
+import EyeVisibleIcon from "@/images/icons/eye-visible.svg";
 import InputItem from "./InputItem";
 import { UseFormRegisterReturn } from "react-hook-form";
-import Image from "next/image";
 
 interface PasswordInputProps {
   id: string;
@@ -45,17 +44,11 @@ const PasswordInput = ({
         className="absolute right-4 top-1/2 transform -translate-y-1/2"
         aria-label="비밀번호 보기"
       >
-        <Image
-          width={24}
-          height={24}
-          className="w-6 h-6"
-          src={showPassword ? eyeVisibleIcon : eyeInvisibleIcon}
-          alt={
-            showPassword
-              ? "비밀번호 표시 상태 아이콘"
-              : "비밀번호 숨김 상태 아이콘"
-          }
-        />
+        {showPassword ? (
+          <EyeVisibleIcon className="w-6 h-6" />
+        ) : (
+          <EyeInvisibleIcon className="w-6 h-6" />
+        )}
       </button>
     </div>
   );

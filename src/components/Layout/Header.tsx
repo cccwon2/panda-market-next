@@ -29,7 +29,7 @@ export default function Header() {
           </ul>
         </nav>
         <Link
-          href="/login"
+          href="/auth/login"
           className="text-gray-600 font-semibold hover:text-blue-500"
         >
           로그인
