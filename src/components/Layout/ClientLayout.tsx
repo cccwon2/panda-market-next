@@ -4,9 +4,13 @@
 import React, { useEffect } from "react";
 import localFont from "next/font/local";
 import { usePathname, useSearchParams } from "next/navigation";
+import Cookies from "js-cookie";
 import LoadingSpinner from "@/components/UI/LoadingSpinner";
 import { Provider, useAtomValue, useSetAtom } from "jotai";
-import { loadingAtom } from "@/store/loadingAtom"; // loadingAtom import
+import { userIdAtom, nicknameAtom, userImageAtom } from "@/store/auth";
+import { loadingAtom } from "@/store/loadingAtom";
+import { refreshAccessToken } from "@/api/authApi";
+import { AuthResponse } from "@/types/auth";
 
 const pretendard = localFont({
   src: "../../fonts/pretendard/PretendardVariable.woff2",
@@ -20,6 +24,35 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams();
   const isLoading = useAtomValue(loadingAtom);
   const setIsLoading = useSetAtom(loadingAtom);
+  const setUserId = useSetAtom(userIdAtom);
+  const setNickname = useSetAtom(nicknameAtom);
+  const setUserImage = useSetAtom(userImageAtom);
+
+  useEffect(() => {
+    const autoLogin = async () => {
+      const refreshToken = Cookies.get("refreshToken");
+      if (refreshToken) {
+        try {
+          const result = (await refreshAccessToken(
+            refreshToken
+          )) as AuthResponse;
+          if (result.accessToken) {
+            Cookies.set("accessToken", result.accessToken);
+            setUserId(result.user.id.toString());
+            setNickname(result.user.nickname);
+            setUserImage(result.user.image);
+            // 필요한 경우 다른 사용자 정보도 설정
+          }
+        } catch (error) {
+          console.error("자동 로그인 실패:", error);
+          // 리프레시 토큰이 만료되었거나 유효하지 않은 경우 처리
+          Cookies.remove("refreshToken");
+        }
+      }
+    };
+
+    autoLogin();
+  }, [setUserId, setNickname, setUserImage]);
 
   useEffect(() => {
     setIsLoading(true);

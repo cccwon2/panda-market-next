@@ -102,3 +102,64 @@ export const logout = async (redirectToSignIn: () => void) => {
     console.error("로그아웃 중 오류 발생:", error);
   }
 };
+
+export const refreshAccessToken = async (
+  refreshToken: string
+): Promise<AuthResponse | null> => {
+  try {
+    const response = await axiosInstance.post("/auth/refresh-token", {
+      refreshToken,
+    });
+
+    if (response.status === 200) {
+      const { accessToken } = response.data;
+
+      // 새로운 accessToken을 쿠키에 저장
+      setCookie("accessToken", accessToken, 1 / 48); // 30분
+
+      // Axios 인스턴스의 기본 헤더에 새로운 accessToken 설정
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${accessToken}`;
+
+      // 사용자 정보 가져오기
+      const userResponse = await axiosInstance.get("/users/me");
+      const user = userResponse.data;
+
+      // 사용자 정보 쿠키에 저장
+      setCookie("userId", user.id.toString(), 1 / 48);
+      setCookie("nickname", user.nickname, 1 / 48);
+      setUserImage(user.image);
+
+      return {
+        accessToken,
+        refreshToken, // 기존 refreshToken 유지
+        user,
+      };
+    } else {
+      throw new Error("Failed to refresh token");
+    }
+  } catch (error) {
+    if (isAxiosError(error)) {
+      if (error.response?.status === 401) {
+        console.error("refreshToken이 유효하지 않거나 만료되었습니다!");
+        // refreshToken이 만료되었으므로 모든 인증 관련 쿠키 삭제
+        Cookies.remove("accessToken");
+        Cookies.remove("refreshToken");
+        Cookies.remove("userId");
+        Cookies.remove("nickname");
+        Cookies.remove("userImage");
+
+        // Axios 인스턴스의 기본 헤더에서 Authorization 제거
+        delete axiosInstance.defaults.headers.common["Authorization"];
+
+        console.log("로그아웃 성공");
+      } else {
+        console.error("Error refreshing token:", error.response?.data);
+      }
+    } else {
+      console.error("refreshToken에 알 수 없는 오류가 발생하였습니다!");
+    }
+    return null;
+  }
+};
